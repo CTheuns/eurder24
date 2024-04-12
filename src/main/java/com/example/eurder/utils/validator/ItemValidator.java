@@ -1,10 +1,10 @@
-package com.example.eurder.utils;
+package com.example.eurder.utils.validator;
 
 import com.example.eurder.domain.item.Item;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ItemValidator extends ValidatorModel<Item> {
+public abstract class ItemValidator extends ValidatorModel<Item> {
 
     @Override
     protected boolean isFieldEmptyOrNull(Item item) {
@@ -15,4 +15,5 @@ public class ItemValidator extends ValidatorModel<Item> {
                || isNull(item.getPrice())
                || item.getPrice().getAmountAsFloat() <= 0;
     }
+
 }

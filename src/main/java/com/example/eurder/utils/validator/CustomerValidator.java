@@ -1,15 +1,13 @@
-package com.example.eurder.utils;
+package com.example.eurder.utils.validator;
 
 import com.example.eurder.domain.user.Customer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CustomerValidator extends ValidatorModel<Customer>{
+public class CustomerValidator extends ValidatorModel<Customer> {
 
     @Override
-    protected boolean isFieldEmptyOrNull(Customer customer)  {
+    protected boolean isFieldEmptyOrNull(Customer customer) {
         return isNull(customer)
                || isEmptyOrNull(customer.getFirstName())
                || isEmptyOrNull(customer.getLastName())
@@ -25,7 +23,4 @@ public class CustomerValidator extends ValidatorModel<Customer>{
                || isEmptyOrNull(customer.getPhoneNumber().getCountryCode())
                || isEmptyOrNull(customer.getPhoneNumber().getPhoneNumber());
     }
-
-
-
 }

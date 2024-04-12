@@ -1,9 +1,12 @@
-package com.example.eurder.utils;
+package com.example.eurder.utils.validator;
 
 import com.example.eurder.domain.EntityModel;
+import com.example.eurder.domain.eurder.Eurder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+@Component
 public abstract class ValidatorModel< Entity extends EntityModel> {
 
     private final Logger myLogger = LoggerFactory.getLogger(ValidatorModel.class);
@@ -35,4 +38,6 @@ public abstract class ValidatorModel< Entity extends EntityModel> {
         throw new IllegalStateException("Invalid " + (entity == null ? "NULL_ENTITY" : entity.getClass().getSimpleName())
                                         + " provided for " + type + ". Provided object: " + (entity == null ? null : entity.toString()));
     }
+
+    protected abstract boolean isFieldEmptyOrNull(Eurder eurder);
 }

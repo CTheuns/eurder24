@@ -2,8 +2,10 @@ package com.example.eurder.services;
 
 import com.example.eurder.domain.item.Item;
 import com.example.eurder.repositories.ItemRepository;
-import com.example.eurder.utils.ItemValidator;
+import com.example.eurder.utils.validator.ItemValidator;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 public class ItemService {
@@ -21,5 +23,9 @@ public class ItemService {
             itemValidator.throwInvalidStateException(item, "creation");
         }
         return itemRepository.save(item);
+    }
+
+    public Item getItem(UUID itemId) {
+        return itemRepository.get(itemId);
     }
 }

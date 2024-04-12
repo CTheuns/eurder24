@@ -4,6 +4,7 @@ import com.example.eurder.domain.user.Customer;
 import com.example.eurder.domain.user.userDetails.Adress;
 import com.example.eurder.domain.user.userDetails.EmailAdress;
 import com.example.eurder.domain.user.userDetails.PhoneNumber;
+import com.example.eurder.utils.validator.CustomerValidator;
 import org.junit.jupiter.api.Test;
 
 import java.util.UUID;

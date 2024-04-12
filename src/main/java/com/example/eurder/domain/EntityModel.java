@@ -2,7 +2,7 @@ package com.example.eurder.domain;
 
 import java.util.UUID;
 
-public class EntityModel {
+public abstract class EntityModel {
 
     private UUID uuid;
 
