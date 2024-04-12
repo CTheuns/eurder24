@@ -1,27 +1,23 @@
 package com.example.eurder.domain.item;
 
+import com.example.eurder.domain.EntityModel;
 import com.example.eurder.domain.user.userDetails.Builder;
 
 import java.util.UUID;
 
-public class Item {
+public class Item extends EntityModel {
 
-    private UUID uuid;
     private final String name;
     private final String description;
     private Price price;
     private int amountInStock;
 
     public Item(ItemBuilder itemBuilder) {
-        this.uuid = itemBuilder.uuid;
+        super(itemBuilder.uuid);
         this.name = itemBuilder.name;
         this.description = itemBuilder.description;
         this.price = itemBuilder.price;
         this.amountInStock = itemBuilder.amountInStock;
-    }
-
-    public UUID getUuid() {
-        return uuid;
     }
 
     public String getName() {
@@ -43,7 +39,7 @@ public class Item {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("uuid=").append(uuid);
+        sb.append("id=").append(getUuid());
         sb.append(", name='").append(name).append('\'');
         sb.append(", description='").append(description).append('\'');
         sb.append(", price=").append(price);

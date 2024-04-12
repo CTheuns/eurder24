@@ -5,12 +5,13 @@ import com.example.eurder.domain.user.userDetails.Builder;
 import com.example.eurder.domain.user.userDetails.EmailAdress;
 import com.example.eurder.domain.user.userDetails.PhoneNumber;
 import com.example.eurder.domain.user.userDetails.Role;
+import com.example.eurder.domain.EntityModel;
 
 import java.util.UUID;
 
-public class Customer {
+public class Customer extends EntityModel {
 
-    private UUID uuid;
+
     private String firstName;
     private String lastName;
     private Role role;
@@ -19,17 +20,13 @@ public class Customer {
     private PhoneNumber phoneNumber;
 
     private Customer(CustomerBuilder customerBuilder) {
-        this.uuid = customerBuilder.id;
+        super(customerBuilder.id);
         this.firstName = customerBuilder.firstName;
         this.lastName = customerBuilder.lastName;
         this.role = customerBuilder.role;
         this.emailAdress = customerBuilder.emailAdress;
         this.adress = customerBuilder.adress;
         this.phoneNumber = customerBuilder.phoneNumber;
-    }
-
-    public UUID getUuid() {
-        return uuid;
     }
 
     public String getFirstName() {
@@ -56,13 +53,7 @@ public class Customer {
         return phoneNumber;
     }
 
-    public void generateId() {
-        if (uuid != null){
-            throw new IllegalStateException("Generating an ID when customer already has " +
-                                            "one (" + uuid + ") is not allowed.");
-        }
-        uuid = UUID.randomUUID();
-        }
+
 
 
     public static class CustomerBuilder extends Builder<Customer>{
