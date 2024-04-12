@@ -1,4 +1,4 @@
-package com.example.eurder.utils;
+package com.example.eurder.databases;
 
 import com.example.eurder.domain.EntityModel;
 
