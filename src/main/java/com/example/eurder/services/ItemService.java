@@ -28,4 +28,11 @@ public class ItemService {
     public Item getItem(UUID itemId) {
         return itemRepository.get(itemId);
     }
+
+    public Item updateItem(Item item) {
+        if (!itemValidator.isUpdateValid(item)){
+            itemValidator.throwInvalidStateException(item, "updating");
+        }
+        return itemRepository.update(item);
+    }
 }

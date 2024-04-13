@@ -16,4 +16,5 @@ public abstract class ItemValidator extends ValidatorModel<Item> {
                || item.getPrice().getAmountAsFloat() <= 0;
     }
 
+
 }
