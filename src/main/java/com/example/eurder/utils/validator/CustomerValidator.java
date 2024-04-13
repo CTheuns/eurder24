@@ -1,5 +1,6 @@
 package com.example.eurder.utils.validator;
 
+import com.example.eurder.domain.eurder.Eurder;
 import com.example.eurder.domain.user.Customer;
 import org.springframework.stereotype.Component;
 
@@ -7,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class CustomerValidator extends ValidatorModel<Customer> {
 
     @Override
-    protected boolean isFieldEmptyOrNull(Customer customer) {
+    public boolean isFieldEmptyOrNull(Customer customer) {
         return isNull(customer)
                || isEmptyOrNull(customer.getFirstName())
                || isEmptyOrNull(customer.getLastName())
@@ -22,5 +23,11 @@ public class CustomerValidator extends ValidatorModel<Customer> {
                || isNull(customer.getPhoneNumber())
                || isEmptyOrNull(customer.getPhoneNumber().getCountryCode())
                || isEmptyOrNull(customer.getPhoneNumber().getPhoneNumber());
+    }
+
+//    without this out of place method IDE does not compile
+    @Override
+    protected boolean isFieldEmptyOrNull(Eurder eurder) {
+        return false;
     }
 }

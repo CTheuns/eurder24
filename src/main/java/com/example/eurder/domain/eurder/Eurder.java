@@ -15,7 +15,7 @@ public class Eurder extends EntityModel {
     private final UUID customerId;
 
     public Eurder(EurderBuilder eurderBuilder) {
-        super(eurderBuilder.id);
+        super(eurderBuilder.eurderId);
         this.eurderItems = eurderBuilder.eurderItems;
         this.customerId = eurderBuilder.customerId;
     }
@@ -45,7 +45,7 @@ public class Eurder extends EntityModel {
 
     public static class EurderBuilder extends Builder<Eurder> {
 
-        private UUID id;
+        private UUID eurderId;
         private List<EurderItem> eurderItems;
         private UUID customerId;
 
@@ -58,7 +58,7 @@ public class Eurder extends EntityModel {
 
 
         public EurderBuilder withId(UUID id) {
-            this.id = id;
+            this.eurderId = id;
             return this;
         }
 

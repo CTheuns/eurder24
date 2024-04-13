@@ -32,6 +32,7 @@ public class EurderService {
         assertOrderIsValidForCreation(order);
         assertOrderingCustomerExists(order);
         assertAllOrderedItemsExist(order);
+
         return eurderRepository.save(order);
     }
 
